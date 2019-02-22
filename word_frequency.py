@@ -49,16 +49,16 @@ def print_word_freq(filename):
     document_text = open("seneca_falls.txt", "r")
     text_string = document_text.read().lower()
     match_pattern = re.findall(r'\b[a-z]{3,15}\b', text_string)
+     
     
-    for words in match_pattern:
-        count = word_freq.get(word,0)
+    for word in match_pattern:
         # Reaches into dictionary, counts words
-        word_freq[word] = count + 1
-
+        word_freq[word] = word_freq.get(word,0) + 1
+    # breakpoint()  
     word_freq_list = word_freq.keys()
-
-    for words in word_freq_list:
-        print (words, word_freq[words])
+    # breakpoint() 
+    for word in word_freq_list:
+        print (word, word_freq[word])
 
 # ________________________________________________________________
   
